@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>hello 💕</title>
+  <style>
+    body {
+      background-color: rgb(229, 188, 222);
+      overflow: hidden;
+      color: white;
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
+
+    .floating-text {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0;
+      animation: fadeText 3s infinite alternate ease-in-out;
+      white-space: nowrap;
+    }
+
+    @keyframes fadeText {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    function createText(message, color) {
+      let text = document.createElement("div");
+      text.className = "floating-text";
+      text.style.top = Math.random() * 100 + "vh";
+      text.style.left = Math.random() * 100 + "vw";
+      text.style.color = color;
+      text.innerHTML = message;
+      document.body.appendChild(text);
+    }
+
+    const messages = [
+      "💖 Yeu Tuong 💖",
+      "💖 Yeu Tuong 💖",
+      "💖 Yeu Tuong 💖",
+      "💖 Yeu Tuong 💖",
+      "💖 Yeu Tuong 💖",
+      "💖 Yeu anh 💖"
+    ];
+
+    setInterval(() => {
+      let message = messages[Math.floor(Math.random() * messages.length)];
+      let colors = ["red", "pink", "white", "purple"];
+      createText(message, colors[Math.floor(Math.random() * colors.length)]);
+    }, 300);
+  </script>
+
+</body>
+</html>
